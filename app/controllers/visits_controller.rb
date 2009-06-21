@@ -1,5 +1,5 @@
 class VisitsController < ApplicationController
-  before_filter :get_user
+  before_filter :get_user, :except => :photo
 
   # GET /visits
   # GET /visits.xml
@@ -84,6 +84,14 @@ class VisitsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def photo
+    @image_data = Visit.find(params[:id]).photo
+
+    send_data (@image_data, :type => "image/jpeg", 
+               :disposition => 'inline')
+  end
+
 
   private
   def get_user
