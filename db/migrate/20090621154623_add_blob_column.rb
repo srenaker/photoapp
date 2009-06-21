@@ -1,6 +1,6 @@
 class AddBlobColumn < ActiveRecord::Migration
   def self.up
-    add_column :visits, :photo, :binary, :limit => 1.megabyte 
+    add_column :visits, :photo, :binary
   end
 
   def self.down
