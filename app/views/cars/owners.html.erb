@@ -1,0 +1,25 @@
+<h1>Owners of <%= h @car.name %>s</h1>
+
+<% if @car.users.count > 0 %>
+
+<table cellpadding='5' border='1'>
+
+<tr>
+<th>User</th>
+<th>Age</th>
+</tr>
+
+<% for user in @car.users do %>
+<tr>
+<td><%= link_to user.full_name, user %></td>
+<td><%= h user.age %></td>
+
+</tr>
+<% end %>
+</table>
+
+<% else %>
+<p>No one owns this car.</p>
+<% end %>
+
+<p> <%= link_to 'Back', @car %></p>

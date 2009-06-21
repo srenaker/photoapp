@@ -1,0 +1,20 @@
+<% form_for([@user, @visit], :html => {:multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :place_name %><br />
+    <%= f.text_field :place_name %>
+  </p>
+  <p>
+    <%= f.label :visit_date %><br />
+    <%= f.date_select :visit_date, :start_year => 1950 %>
+  </p>
+
+<p>Image:<br/>
+<%= f.file_field :photo %>
+</p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

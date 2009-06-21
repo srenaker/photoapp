@@ -1,0 +1,34 @@
+<h1>Visits for <%= h @user.full_name %></h1>
+
+<% if @user.visits.count > 0 %>
+
+<table cellpadding='5' border='1'>
+  <tr>
+    <th>Place name</th>
+    <th>Visit date</th>
+
+  </tr>
+
+<% for visit in @visits %>
+  <tr>
+    <td><%=h visit.place_name %></td>
+    <td><%=h visit.visit_date %></td>
+
+    <td><%= link_to 'Show', [@user, visit] %></td>
+    <td><%= link_to 'Edit', edit_user_visit_path(@user, visit) %></td>
+    <td><%= link_to 'Destroy', [@user, visit], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% else %>
+
+<p><%= h @user.full_name %> hasn't listed any visits yet. </p>
+<% end %>
+
+<%= link_to 'New visit', new_user_visit_path(@user) %> |
+<%= link_to 'Back', @user %> |
+<%= link_to 'Users list', users_path %>
+</p>

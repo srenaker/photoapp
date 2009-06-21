@@ -1,0 +1,6 @@
+class Visit < ActiveRecord::Base
+  # every visit belongs to a user, linked through user_id
+  belongs_to :user
+
+#  validates_existence_of :user
+end

@@ -1,0 +1,7 @@
+<h1>Editing visit for <%= h @user.full_name %>
+</h1>
+
+<%= render :partial => 'form' %>
+
+<%= link_to 'Show', [@user, @visit] %> |
+<%= link_to 'Back', user_visits_path(@user) %>

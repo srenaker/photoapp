@@ -1,0 +1,9 @@
+<p>
+  <b>Name:</b>
+  <%=h @car.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Owners', owners_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>

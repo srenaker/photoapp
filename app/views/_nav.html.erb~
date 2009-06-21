@@ -1,0 +1,5 @@
+<p>
+<%= link_to "Users", users_url %>
+<%= link_to "Cars", cars_url %>
+</p>
+<hr />

@@ -1,0 +1,22 @@
+<h1>Listing cars</h1>
+
+<table cellpadding='5' border='1'>
+  <tr>
+    <th>Car type</th>
+    <th>Owners</th>
+  </tr>
+
+<% @cars.each do |car| %>
+  <tr>
+    <td><%=h car.name %></td>
+    <td><%=h car.users.count %></td>
+    <td><%= link_to 'Show', car %></td>
+    <td><%= link_to 'Edit', edit_car_path(car) %></td>
+    <td><%= link_to 'Destroy', car, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New car', new_car_path %>

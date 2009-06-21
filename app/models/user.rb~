@@ -1,0 +1,8 @@
+class User < ActiveRecord::Base
+  # a user can visit many places
+  has_many :visits, :dependent => :destroy
+
+  def full_name
+    first_name + " " + last_name
+  end
+end

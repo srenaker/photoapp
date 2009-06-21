@@ -1,0 +1,22 @@
+<h1>Editing visit for <%= h @user.full_name %>
+</h1>
+
+<% form_for([@user,@visit]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :place_name %><br />
+    <%= f.text_field :place_name %>
+  </p>
+  <p>
+    <%= f.label :visit_date %><br />
+    <%= f.date_select :visit_date %>
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', [@user, @visit] %> |
+<%= link_to 'Back', user_visits_path(@user) %>

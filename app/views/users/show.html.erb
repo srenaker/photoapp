@@ -1,0 +1,37 @@
+<h3>User listing</h3>
+
+<p>
+  <b>First name:</b>
+  <%=h @user.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @user.last_name %>
+</p>
+
+<p>
+  <b>Hometown:</b>
+  <%=h @user.hometown %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%=h @user.age %>
+</p>
+<p>
+<b>Cars:</b>
+<% if @user.cars.count > 0 %>
+<%= @user.cars.collect {|c| link_to(c.name, c)}.join(", ") %>
+<% else %>
+No cars.
+<% end %>
+</p>
+
+
+<br />
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Cars', cars_user_path(@user) %> |
+<%= link_to 'Visits', user_visits_path(@user) %> |
+<%= link_to 'Back', users_path %>

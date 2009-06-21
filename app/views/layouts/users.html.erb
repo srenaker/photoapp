@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>dumb photoalbum app</title>
+<%= stylesheet_link_tag 'general' %>
+</head>
+
+<%= render :partial => '/nav' %>
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</body>
+</html>
