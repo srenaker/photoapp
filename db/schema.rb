@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090621154623) do
+ActiveRecord::Schema.define(:version => 20090622181845) do
 
   create_table "cars", :force => true do |t|
     t.string   "name"
@@ -39,7 +39,11 @@ ActiveRecord::Schema.define(:version => 20090621154623) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.binary   "photo",      :limit => 16777215
+    t.binary   "photo1"
+    t.binary   "photo2"
+    t.binary   "photo3"
+    t.binary   "photo4"
+    t.binary   "photo5"
   end
 
 end

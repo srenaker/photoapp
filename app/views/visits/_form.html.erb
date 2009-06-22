@@ -4,14 +4,19 @@
   <p>
     <%= f.label :place_name %><br />
     <%= f.text_field :place_name %>
+
   </p>
   <p>
     <%= f.label :visit_date %><br />
     <%= f.date_select :visit_date, :start_year => 1950 %>
   </p>
 
-<p>Image:<br/>
-<%= f.file_field :photo %>
+<p>Add up to 5 images:<br/>
+<%= f.file_field :photo1 %> <br />
+<%= f.file_field :photo2 %> <br />
+<%= f.file_field :photo3 %> <br />
+<%= f.file_field :photo4 %> <br />
+<%= f.file_field :photo5 %> <br />
 </p>
 
   <p>

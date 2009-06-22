@@ -1,6 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.connect 'visits/:id/photo', :controller => "visits", :action => "photo"
+  map.connect 'visits/:id/photo1', :controller => "visits", :action => "photo1"
+  map.connect 'visits/:id/photo2', :controller => "visits", :action => "photo2"
+  map.connect 'visits/:id/photo3', :controller => "visits", :action => "photo3"
+  map.connect 'visits/:id/photo4', :controller => "visits", :action => "photo4"
+  map.connect 'visits/:id/photo5', :controller => "visits", :action => "photo5"
 
   map.resources :cars, :member => { :owners => :get }
 
