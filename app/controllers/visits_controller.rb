@@ -37,6 +37,8 @@ class VisitsController < ApplicationController
   # GET /visits/1/edit
   def edit
     @visit = @user.visits.find(params[:id])
+
+
   end
 
   # POST /visits
@@ -46,14 +48,11 @@ class VisitsController < ApplicationController
     
     @visit = @user.visits.build(params[:visit])
 
-    
-
     respond_to do |format|
       if (@visit.save)
     
         @visit.photos.create!(:photo_data => photo_raw)
-        
-        
+               
 
         flash[:notice] = 'Visit was successfully created.'
         format.html { redirect_to([@user, @visit]) }
@@ -71,7 +70,13 @@ class VisitsController < ApplicationController
     @visit = @user.visits.find(params[:id])
 
     respond_to do |format|
+
+      photo_raw = params[:visit].delete(:photo_data).read  
+
       if @visit.update_attributes(params[:visit])
+
+        @visit.photos.create!(:photo_data => photo_raw) 
+
         flash[:notice] = 'Visit was successfully updated.'
         format.html { redirect_to([@user, @visit]) }
         format.xml  { head :ok }

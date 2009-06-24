@@ -19,8 +19,15 @@
 </p>
 
 <p>
+<b>Add an image:</b>
+<br />
+<% form_for([@user, @visit], :html => {:multipart => true }) do |f| %>
+<%= f.file_field :photo_data %> <br />
+<%= f.submit 'Add' %>
+<% end %>
+</p>
 
-
+<p>
 <% if @visit.has_photo? %>
   <% @visit.photos.each do |photo| %>  
 
@@ -29,8 +36,5 @@
 
   <% end %>
 <% end %>
-
-
-
 </p>
 
