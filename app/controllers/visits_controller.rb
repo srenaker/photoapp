@@ -1,5 +1,5 @@
 class VisitsController < ApplicationController
-  before_filter :get_user, :except => [:photo] 
+  before_filter :get_user, :except => [:photo1] 
 
   # GET /visits
   # GET /visits.xml
@@ -42,11 +42,10 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.xml
   def create
-    @photo = @user.visits.build(params[:visit]['photo'])
     @visit = @user.visits.build(params[:visit])
 
     respond_to do |format|
-      if (@visit.save && @photo.save)
+      if (@visit.save)
         flash[:notice] = 'Visit was successfully created.'
         format.html { redirect_to([@user, @visit]) }
         format.xml  { render :xml => @visit, :status => :created, :location => @visit }
@@ -86,8 +85,8 @@ class VisitsController < ApplicationController
     end
   end
 
-  def photo
-    @image_data = Visit.find(params[:id])
+  def photo1
+    @image_data = Visit.find(params[:id]).photo1
     send_data(@image_data, :type => "image/jpeg", 
                :disposition => 'inline')
   end
