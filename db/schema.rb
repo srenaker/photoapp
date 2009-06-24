@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090624043008) do
+ActiveRecord::Schema.define(:version => 20090623002812) do
 
   create_table "cars", :force => true do |t|
     t.string   "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20090624043008) do
   add_index "cars_users", ["car_id", "user_id"], :name => "index_cars_users_on_car_id_and_user_id", :unique => true
 
   create_table "photos", :force => true do |t|
-    t.binary  "photo"
+    t.binary  "photo_data"
     t.integer "visit_id"
   end
 
@@ -44,11 +44,6 @@ ActiveRecord::Schema.define(:version => 20090624043008) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.binary   "photo1"
-    t.binary   "photo2"
-    t.binary   "photo3"
-    t.binary   "photo4"
-    t.binary   "photo5"
   end
 
 end

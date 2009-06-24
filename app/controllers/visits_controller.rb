@@ -42,10 +42,19 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.xml
   def create
+    photo_raw = params[:visit].delete(:photo_data).read
+    
     @visit = @user.visits.build(params[:visit])
+
+    
 
     respond_to do |format|
       if (@visit.save)
+    
+        @visit.photos.create!(:photo_data => photo_raw)
+        
+        
+
         flash[:notice] = 'Visit was successfully created.'
         format.html { redirect_to([@user, @visit]) }
         format.xml  { render :xml => @visit, :status => :created, :location => @visit }
@@ -85,8 +94,8 @@ class VisitsController < ApplicationController
     end
   end
 
-  def photo1
-    @image_data = Visit.find(params[:id]).photo1
+  def photo
+    @image_data = Visit.find(params[:visit_id]).photos.find(params[:photo_id]).photo_data
     send_data(@image_data, :type => "image/jpeg", 
                :disposition => 'inline')
   end

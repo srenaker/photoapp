@@ -21,9 +21,13 @@
 <p>
 
 
-<% if @visit.has_photo1? %>
-<b>Photo 1:</b>
-<%= image_tag @visit.photo_path1 %><br />
+<% if @visit.has_photo? %>
+  <% @visit.photos.each do |photo| %>  
+
+    <b>Photo:</b>
+    <%= image_tag photo.photo_path %><br />
+
+  <% end %>
 <% end %>
 
 
