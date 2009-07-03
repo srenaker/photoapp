@@ -1,5 +1,0 @@
-body { font-family:sans-serif; }
-
-h1 { font-family:serif; font-size: 24pt; font-weight:bold; color:#F00 ; }
-
-h3 { font-family:serif; font-size: 16pt; font-weight:bold; color:#F00 ; }
